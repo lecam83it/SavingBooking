@@ -12,7 +12,6 @@ import {
   Dimensions
 } from "react-native";
 import { connect } from "react-redux";
-import firebaseApp from "../firebase/FirebaseConfig.js";
 import { fetchItems } from "../actions/actionCreators";
 
 YellowBox.ignoreWarnings([
@@ -30,7 +29,7 @@ class LoadWeb extends Component {
       datas: []
     };
 
-    this.itemsRef = this.getRef();
+    // this.itemsRef = this.getRef();
   }
 
   getRef() {
@@ -77,6 +76,8 @@ class LoadWeb extends Component {
     this.props.fetchItems("http://demo02.hifapp.com/api/product");
   }
   render() {
+    const { items } = this.props;
+
     return (
       <View style={styles.container}>
         <StatusBar
